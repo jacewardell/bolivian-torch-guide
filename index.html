@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Care, feeding, cuttings and seed sowing for Trichocereus bridgesii, adapted from u/TossinDogs for Salt Lake Valley conditions.">
+<meta name="theme-color" content="#E9EBE2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121814" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bolivian Torch Field Guide">
+<meta property="og:description" content="Trichocereus bridgesii care, feeding, cuttings and seed sowing, written for the Salt Lake Valley.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Bolivian Torch Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=Syne:wght@600;700;800&display=swap">
+<style>
+:root{
+  --ground:#E9EBE2; --paper:#F7F8F3; --sunk:#DFE3D8;
+  --ink:#1B241F; --ink-2:#4A5850; --ink-3:#78857C;
+  --line:#C9D0C3; --line-2:#B3BCAC;
+  --sage:#4F7059; --sage-soft:#D3E0D4;
+  --cobalt:#27479B; --cobalt-soft:#D7DEF3;
+  --sun:#9A5C12; --sun-soft:#F1E1C6;
+  --alarm:#9E3122; --alarm-soft:#F3D9D3;
+  --plant:#7DA187; --track:#E8EBE1; --earth:#8C7256;
+  --fs-xs:.75rem; --fs-sm:.8438rem; --fs-base:1.0625rem;
+  --fs-lg:1.1875rem; --fs-xl:1.4375rem; --fs-2xl:1.875rem;
+  --fs-3xl:clamp(2.1rem,8.4vw,3.4rem);
+  --pad:1.25rem; --radius:5px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#121814; --paper:#1A221C; --sunk:#232C25;
+    --ink:#E7ECE3; --ink-2:#AAB6AC; --ink-3:#7F8C83;
+    --line:#2E3931; --line-2:#3D493F;
+    --sage:#94BB9C; --sage-soft:#24332A;
+    --cobalt:#94ACF2; --cobalt-soft:#1D2742;
+    --sun:#E0A65C; --sun-soft:#332611;
+    --alarm:#E88874; --alarm-soft:#3B1E19;
+    --plant:#86AD90; --track:#1F2721; --earth:#A98F70;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121814; --paper:#1A221C; --sunk:#232C25;
+  --ink:#E7ECE3; --ink-2:#AAB6AC; --ink-3:#7F8C83;
+  --line:#2E3931; --line-2:#3D493F;
+  --sage:#94BB9C; --sage-soft:#24332A;
+  --cobalt:#94ACF2; --cobalt-soft:#1D2742;
+  --sun:#E0A65C; --sun-soft:#332611;
+  --alarm:#E88874; --alarm-soft:#3B1E19;
+  --plant:#86AD90; --track:#1F2721; --earth:#A98F70;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:var(--fs-base); line-height:1.62;
+  -webkit-text-size-adjust:100%;
+}
+h1,h2,h3,h4{font-family:"Syne","Helvetica Neue",Arial,sans-serif;font-weight:800;line-height:1.05;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--cobalt)}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+.wrap{width:min(100% - 2rem,44rem);margin-inline:auto}
+.prose{max-width:62ch}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:var(--fs-xs);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+
+/* nav */
+.bar{position:sticky;top:0;z-index:50;background:var(--ground);background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:.75rem;padding:.5rem 0}
+.mark{font-family:"Syne",sans-serif;font-weight:800;font-size:var(--fs-sm);letter-spacing:-.01em;white-space:nowrap;flex:none}
+.chips{display:flex;gap:.375rem;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;margin-left:auto;min-width:0;padding:.25rem 0}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);letter-spacing:.04em;text-decoration:none;color:var(--ink-2);border:1px solid var(--line);border-radius:99px;padding:.3rem .6rem;background:var(--paper);transition:color .2s,border-color .2s}
+.chip[aria-current="true"]{color:var(--paper);background:var(--sage);border-color:var(--sage)}
+:root[data-theme="dark"] .chip[aria-current="true"],:root:not([data-theme="light"]) .chip[aria-current="true"]{color:var(--ground)}
+
+/* hero */
+.hero{padding:2.25rem 0 2.75rem;display:grid;gap:1.5rem}
+.hero-art{justify-self:center;width:min(100%,280px)}
+.hero h1{font-size:var(--fs-3xl);letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--sage)}
+.latin{font-style:italic;color:var(--ink-2);font-size:var(--fs-sm);margin-top:.6rem}
+.tldr{margin-top:1.1rem;font-size:var(--fs-lg);color:var(--ink-2);max-width:34ch}
+.aka{margin-top:1rem;font-size:var(--fs-xs);color:var(--ink-3);font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+
+/* sections */
+.sec{border-top:1px solid var(--line);padding:2.5rem 0}
+.sec-head{display:grid;gap:.5rem;margin-bottom:1.4rem}
+.sec-head h2{font-size:var(--fs-2xl);letter-spacing:-.03em}
+.sec-head p{color:var(--ink-2);max-width:56ch}
+.stack{display:grid;gap:1.1rem}
+.stack>div>p+p{margin-top:.7rem}
+h3{font-size:var(--fs-lg);letter-spacing:-.015em;margin-bottom:.35rem}
+h4{font-size:var(--fs-base);font-weight:700;letter-spacing:-.01em}
+
+/* panels */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:var(--pad)}
+.note{border-radius:var(--radius);padding:.9rem 1rem;display:grid;gap:.4rem;font-size:var(--fs-sm);line-height:1.55}
+.note .tag{font-family:"JetBrains Mono",monospace;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.note-do{background:var(--sage-soft);color:var(--ink)}
+.note-do .tag{color:var(--sage)}
+.note-sun{background:var(--sun-soft)}
+.note-sun .tag{color:var(--sun)}
+.note-stop{background:var(--alarm-soft)}
+.note-stop .tag{color:var(--alarm)}
+.note-utah{background:var(--cobalt-soft)}
+.note-utah .tag{color:var(--cobalt)}
+
+/* lists */
+ul.ticks{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+ul.ticks li{position:relative;padding-left:1.7rem}
+ul.ticks li::before{content:"";position:absolute;left:1px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--sage);transform:rotate(45deg)}
+
+/* now panel */
+.now{background:var(--paper);border:1px solid var(--line-2);border-radius:var(--radius);overflow:hidden}
+.now-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem .75rem;padding:1rem var(--pad) .75rem;border-bottom:1px solid var(--line)}
+.now-month{font-family:"Syne",sans-serif;font-weight:800;font-size:var(--fs-xl);letter-spacing:-.02em}
+.now-mode{font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.25rem .55rem;border-radius:99px}
+.mode-out{background:var(--sage-soft);color:var(--sage)}
+.mode-in{background:var(--cobalt-soft);color:var(--cobalt)}
+.mode-move{background:var(--sun-soft);color:var(--sun)}
+.now-body{padding:1rem var(--pad) 1.15rem;display:grid;gap:.9rem}
+.now-head{font-family:"Syne",sans-serif;font-weight:700;font-size:var(--fs-lg);letter-spacing:-.015em}
+.now-water{display:flex;align-items:center;gap:.5rem;font-family:"JetBrains Mono",monospace;font-size:var(--fs-sm);color:var(--ink-2)}
+.now-water b{color:var(--cobalt);font-weight:700}
+
+/* spec grid */
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+@media (min-width:34rem){.specs{grid-template-columns:repeat(3,1fr)}}
+.spec{background:var(--paper);padding:.9rem .85rem;display:grid;gap:.3rem;align-content:start}
+.spec-k{font-family:"JetBrains Mono",monospace;font-size:.6875rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.spec-v{font-family:"Syne",sans-serif;font-weight:700;font-size:1.0625rem;line-height:1.25;letter-spacing:-.01em}
+.spec-v small{display:block;font-family:"Newsreader",serif;font-weight:400;font-size:var(--fs-xs);color:var(--ink-2);letter-spacing:0;margin-top:.15rem}
+
+/* year chart */
+.year{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);padding:1rem .75rem .75rem}
+.ycols{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;align-items:end}
+.ycol{display:grid;gap:4px;justify-items:center;cursor:default}
+.ybar{width:100%;height:74px;display:flex;align-items:flex-end;border-radius:2px;background:var(--track)}
+.yfill{width:100%;border-radius:2px;background:var(--cobalt);opacity:.85}
+.yplace{width:100%;height:5px;border-radius:2px}
+.p-out{background:var(--sage)}
+.p-in{background:var(--ink-3)}
+.p-edge{background:repeating-linear-gradient(90deg,var(--sun) 0 3px,transparent 3px 6px);background-color:var(--sun-soft)}
+.ym{font-family:"JetBrains Mono",monospace;font-size:.625rem;color:var(--ink-3);letter-spacing:.02em}
+.ycol.on .ym{color:var(--ink);font-weight:700}
+.ycol.on .ybar{outline:2px solid var(--ink);outline-offset:2px;border-radius:3px}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-top:1rem;font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);color:var(--ink-2)}
+.legend span{display:flex;align-items:center;gap:.4rem}
+.swatch{width:12px;height:6px;border-radius:2px;flex:none}
+
+/* steps */
+.steps{display:grid;gap:1.25rem;counter-reset:s}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.step-top{display:flex;gap:.85rem;align-items:flex-start;padding:1rem var(--pad) .5rem}
+.step-n{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:var(--fs-sm);color:var(--paper);background:var(--ink);width:1.75rem;height:1.75rem;display:grid;place-items:center;border-radius:99px;flex:none}
+:root[data-theme="dark"] .step-n,:root:not([data-theme="light"]) .step-n{color:var(--ground)}
+.step-when{font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);color:var(--sun);margin-top:.3rem;letter-spacing:.02em}
+.step-art{width:100%;display:block;background:var(--sunk);border-block:1px solid var(--line)}
+.step-body{padding:1rem var(--pad) 1.15rem;display:grid;gap:.7rem;font-size:var(--fs-sm);line-height:1.6}
+
+/* compare */
+.compare{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+@media (min-width:34rem){.compare{grid-template-columns:1fr 1fr}}
+.cmp{background:var(--paper);padding:1rem;display:grid;gap:.6rem;align-content:start}
+.cmp svg{width:100%;height:auto;max-width:150px}
+.cmp-t{font-family:"JetBrains Mono",monospace;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.cmp p{font-size:var(--fs-sm);line-height:1.55;color:var(--ink-2)}
+
+/* accordions */
+details{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}
+details+details{margin-top:.5rem}
+summary{cursor:pointer;list-style:none;padding:.85rem var(--pad);font-family:"Syne",sans-serif;font-weight:700;font-size:var(--fs-base);letter-spacing:-.01em;display:flex;gap:.75rem;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font-family:"JetBrains Mono",monospace;font-weight:400;color:var(--sage);font-size:1.15rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+.det-body{padding:0 var(--pad) 1.1rem;display:grid;gap:.6rem;font-size:var(--fs-sm);line-height:1.6;color:var(--ink-2)}
+.det-body b{color:var(--ink)}
+
+/* diagram */
+.figure{display:grid;gap:.6rem}
+.figure svg{width:100%;height:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}
+figcaption{font-size:var(--fs-xs);color:var(--ink-3);font-family:"JetBrains Mono",monospace;line-height:1.5}
+
+footer{border-top:1px solid var(--line);padding:2rem 0 3.5rem;display:grid;gap:.85rem;font-size:var(--fs-xs);color:var(--ink-3);line-height:1.6}
+footer b{color:var(--ink-2)}
+
+.js .reveal{opacity:0;transform:translateY(14px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.3,1)}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  *{scroll-behavior:auto!important}
+}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:4.25rem}
+
+/* --- app surfaces --- */
+.now-date{flex-basis:100%;font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+.now-block{padding:1rem var(--pad) 1.15rem;border-top:1px solid var(--line);display:grid;gap:.7rem}
+.blk-k{font-family:"JetBrains Mono",monospace;font-size:.6875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.meter{display:grid;gap:.45rem}
+.bar-meter{height:6px;background:var(--sunk);border-radius:99px;overflow:hidden}
+.bar-meter i{display:block;height:100%;width:0;background:var(--sage);border-radius:99px;transition:width .7s cubic-bezier(.2,.7,.3,1)}
+.meter-row{display:flex;justify-content:space-between;gap:1rem;font-family:"JetBrains Mono",monospace;font-size:.6875rem;color:var(--ink-3);letter-spacing:.04em}
+.mile{display:grid;grid-template-columns:auto 1fr auto;gap:.5rem .85rem;align-items:baseline}
+.mile .mt{font-size:var(--fs-sm);line-height:1.45}
+.mile .md,.mile .mn{font-family:"JetBrains Mono",monospace;font-size:.6875rem;letter-spacing:.04em;white-space:nowrap}
+.mile .md{color:var(--ink-3)}
+.mile .mn{color:var(--sage);text-align:right}
+.ytoday{font-family:"JetBrains Mono",monospace;font-size:.5625rem;font-weight:700;color:var(--sage);letter-spacing:.03em;line-height:1}
+
+/* --- mixes, scales, ladders --- */
+.panel{display:grid;gap:.85rem;align-content:start}
+.ratio{display:grid;gap:.7rem}
+.ratio-row{display:grid;gap:.3rem}
+.ratio-k{display:flex;justify-content:space-between;gap:.75rem;font-family:"JetBrains Mono",monospace;font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.ratio-k b{color:var(--ink);font-weight:500}
+.ratio-bar{display:flex;height:13px;border-radius:3px;overflow:hidden;background:var(--track)}
+.r-inorg{background:var(--ink-3)}
+.r-org{background:var(--earth)}
+.key{display:flex;flex-wrap:wrap;gap:.5rem 1rem;font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);color:var(--ink-2)}
+.key span{display:flex;align-items:center;gap:.4rem}
+.ec-bar{display:flex;height:15px;border-radius:3px;overflow:hidden}
+.ec-bar i{flex:1}
+.ec-marks{display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:.625rem;color:var(--ink-3);letter-spacing:.03em}
+.ladder{display:flex;align-items:flex-end;justify-content:space-between;gap:.4rem}
+.rung{display:grid;gap:.4rem;justify-items:center;text-align:center;flex:1}
+.rung i{display:block;border-radius:50%;background:var(--ink-3)}
+.rung b{font-family:"JetBrains Mono",monospace;font-size:.625rem;font-weight:500;color:var(--ink)}
+.rung span{font-size:.6875rem;color:var(--ink-3);line-height:1.25}
+.panel-note{font-size:var(--fs-sm);color:var(--ink-2);line-height:1.5}
+.linkout{font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);word-break:break-word;line-height:1.5}
+.dot-8{width:7px;height:7px}.dot-12{width:11px;height:11px}.dot-16{width:15px;height:15px}.dot-20{width:20px;height:20px}
+
+/* --- glossary --- */
+.gloss{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.gl{background:var(--paper);padding:.9rem 1rem;display:grid;gap:.35rem}
+.gl-t{display:flex;align-items:baseline;gap:.55rem;flex-wrap:wrap}
+.gl-a{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:var(--fs-sm);letter-spacing:.05em;color:var(--sage);white-space:nowrap}
+.gl-f{font-family:"Syne",sans-serif;font-weight:700;font-size:var(--fs-sm);letter-spacing:-.01em;color:var(--ink)}
+.gl-d{font-size:var(--fs-sm);line-height:1.5;color:var(--ink-2)}
+.gl-d b{color:var(--ink)}
+.jump{font-size:var(--fs-sm)}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap bar-in">
+    <span class="mark">BRIDGESII</span>
+    <nav class="chips" aria-label="Sections">
+      <a class="chip" href="#now">Now</a>
+      <a class="chip" href="#soil">Soil</a>
+      <a class="chip" href="#water">Water</a>
+      <a class="chip" href="#feed">Feed</a>
+      <a class="chip" href="#sun">Light</a>
+      <a class="chip" href="#winter">Winter</a>
+      <a class="chip" href="#year">Year</a>
+      <a class="chip" href="#cuts">Cuts</a>
+      <a class="chip" href="#seed">Seed</a>
+      <a class="chip" href="#trouble">Trouble</a>
+      <a class="chip" href="#terms">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 200 262" role="img" aria-label="Illustration of a ribbed blue-green Bolivian torch cactus with long honey-colored spines and a small pup, growing in a terracotta pot">
+    <defs>
+      <clipPath id="colClip"><rect x="72" y="32" width="56" height="166" rx="28"/></clipPath>
+      <clipPath id="pupClip"><rect x="128" y="146" width="34" height="52" rx="17"/></clipPath>
+    </defs>
+    <ellipse cx="100" cy="252" rx="62" ry="7" fill="var(--ink)" opacity=".08"/>
+    <rect x="128" y="146" width="34" height="52" rx="17" fill="var(--plant)"/>
+    <g clip-path="url(#pupClip)" fill="var(--ink)" opacity=".13">
+      <rect x="139" y="146" width="4" height="52"/><rect x="151" y="146" width="4" height="52"/>
+    </g>
+    <rect x="132" y="154" width="6" height="34" rx="3" fill="#FFFFFF" opacity=".2"/>
+    <rect x="72" y="32" width="56" height="166" rx="28" fill="var(--plant)"/>
+    <g clip-path="url(#colClip)" fill="var(--ink)" opacity=".13">
+      <rect x="86" y="32" width="5" height="166"/><rect x="103" y="32" width="5" height="166"/><rect x="119" y="32" width="5" height="166"/>
+    </g>
+    <rect x="77" y="46" width="7" height="140" rx="3" fill="#FFFFFF" opacity=".22"/>
+    <g stroke="#C9A227" stroke-width="1.7" stroke-linecap="round" fill="none">
+      <path d="M72 66l-13-5M72 66l-14 3M72 66l-12 8"/>
+      <path d="M72 92l-13-5M72 92l-14 3M72 92l-12 8"/>
+      <path d="M72 118l-13-5M72 118l-14 3M72 118l-12 8"/>
+      <path d="M72 144l-13-5M72 144l-14 3M72 144l-12 8"/>
+      <path d="M72 166l-13-5M72 166l-14 3M72 166l-12 8"/>
+      <path d="M128 66l13-5M128 66l14 3M128 66l12 8"/>
+      <path d="M128 92l13-5M128 92l14 3M128 92l12 8"/>
+      <path d="M128 118l13-5M128 118l14 3M128 118l12 8"/>
+      <path d="M162 162l11-4M162 162l12 3M162 162l10 7"/>
+      <path d="M162 184l11-4M162 184l12 3M162 184l10 7"/>
+    </g>
+    <g fill="var(--ink)" opacity=".35">
+      <circle cx="72" cy="66" r="2.2"/><circle cx="72" cy="92" r="2.2"/><circle cx="72" cy="118" r="2.2"/>
+      <circle cx="72" cy="144" r="2.2"/><circle cx="72" cy="166" r="2.2"/>
+      <circle cx="128" cy="66" r="2.2"/><circle cx="128" cy="92" r="2.2"/><circle cx="128" cy="118" r="2.2"/>
+      <circle cx="162" cy="162" r="2"/><circle cx="162" cy="184" r="2"/>
+    </g>
+    <path d="M56 197h88l-9 53a5 5 0 0 1-5 4H70a5 5 0 0 1-5-4z" fill="#A9765A"/>
+    <path d="M110 197h34l-9 53a5 5 0 0 1-5 4h-32z" fill="#000" opacity=".12"/>
+    <rect x="51" y="189" width="98" height="15" rx="4" fill="#B98467"/>
+    <rect x="57" y="193" width="86" height="6" rx="3" fill="#4A3A2E" opacity=".55"/>
+  </svg>
+  <div>
+    <h1>The <em>Bolivian</em> torch, kept alive in Utah.</h1>
+    <p class="latin">Echinopsis lageniformis &nbsp;·&nbsp; syn. Trichocereus bridgesii</p>
+    <p class="tldr">Mix your own soil. Drench it, then let it go all the way dry. As much sun as it will take. Feed it far more than you think.</p>
+    <p class="aka">Bolivian torch. Fast, blue, and seriously spiny.</p>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="now">
+  <div class="sec-head">
+    <span class="eyebrow">Right now</span>
+    <h2>What this plant needs today</h2>
+  </div>
+  <div class="now">
+    <div class="now-top">
+      <span class="now-date" id="nowDate">&nbsp;</span>
+      <span class="now-month" id="nowPhase">&nbsp;</span>
+      <span class="now-mode" id="nowMode">&nbsp;</span>
+    </div>
+    <div class="now-body">
+      <div class="meter">
+        <div class="bar-meter"><i id="phaseFill"></i></div>
+        <div class="meter-row"><span id="phaseFrom"></span><span id="phaseTo"></span></div>
+      </div>
+      <p class="now-head" id="nowHead"></p>
+      <p class="now-water mono" id="nowWater"></p>
+      <ul class="ticks" id="nowList"></ul>
+    </div>
+    <div class="now-block">
+      <span class="blk-k">Next up</span>
+      <div class="mile" id="miles"></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal">
+  <div class="sec-head">
+    <span class="eyebrow">At a glance</span>
+    <h2>The numbers worth memorizing</h2>
+    <p>Almost all of these come straight from the source write-up. They are the settings, not trivia. Unfamiliar with EC or PPFD? <a class="jump" href="#terms">Jump to the glossary</a>.</p>
+  </div>
+  <div class="specs">
+    <div class="spec"><span class="spec-k">Growing temp</span><span class="spec-v mono">68&ndash;86&deg;F<small>Ideal range for germination and growth</small></span></div>
+    <div class="spec"><span class="spec-k">Keep watering</span><span class="spec-v mono">60&deg;F+<small>While daily highs hold at or above</small></span></div>
+    <div class="spec"><span class="spec-k">Dry it off</span><span class="spec-v mono">35&deg;F<small>Once nightly lows will drop below</small></span></div>
+    <div class="spec"><span class="spec-k">Dormant survival</span><span class="spec-v mono">2 yr<small>Dry and below 60&deg;F, no water at all</small></span></div>
+    <div class="spec"><span class="spec-k">Soil, baseline</span><span class="spec-v mono">50 / 50<small>Inorganic to organic, terracotta or fabric</small></span></div>
+    <div class="spec"><span class="spec-k">Particle, adult</span><span class="spec-v mono">3/8&Prime;<small>Never above 1/2&Prime;</small></span></div>
+    <div class="spec"><span class="spec-k">Feed, full</span><span class="spec-v mono">2.0 EC<small>4.0 approaches nutrient toxicity</small></span></div>
+    <div class="spec"><span class="spec-k">Feed, target</span><span class="spec-v mono">2.5&ndash;3.0<small>Four waterings, then flush on the fifth</small></span></div>
+    <div class="spec"><span class="spec-k">Feed pH</span><span class="spec-v mono">6.0&ndash;6.5<small>Same target for the soil itself</small></span></div>
+    <div class="spec"><span class="spec-k">Source water</span><span class="spec-v mono">&lt; 0.35<small>Above this, use a filter</small></span></div>
+    <div class="spec"><span class="spec-k">Vigorous growth</span><span class="spec-v mono">1000<small>PPFD. 500 is maintenance only.</small></span></div>
+    <div class="spec"><span class="spec-k">Your zone</span><span class="spec-v mono">7a&ndash;7b<small>Salt Lake Valley. Adapted, not sourced.</small></span></div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="soil">
+  <div class="sec-head">
+    <span class="eyebrow">Soil</span>
+    <h2>Make your own mix</h2>
+    <p>Almost all pre-bagged cactus soil is bad. &ldquo;Cactus and succulent soil&rdquo; is typically pure peat and bark with about 5% perlite mixed in. MiracleGro adds slow-release fertilizer on top of the peat. Mixing your own is the highest-leverage thing on this page.</p>
+  </div>
+  <div class="stack">
+    <div class="note note-do">
+      <span class="tag">The lazy recipe</span>
+      <p><b>65% pumice, 35% peat-free garden soil.</b> That is the whole thing. If you do nothing else here, do this.</p>
+    </div>
+    <figure class="figure">
+      <svg viewBox="0 0 340 168" role="img" aria-label="Cross-section of a terracotta pot showing the lazy mix of 65 percent pumice to 35 percent garden soil, draining freely out the bottom">
+        <text x="16" y="22" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.2" fill="var(--ink-3)">THE LAZY MIX: 65% PUMICE / 35% GARDEN SOIL</text>
+        <path d="M108 44h124l-13 96a8 8 0 0 1-8 7h-82a8 8 0 0 1-8-7z" fill="var(--sunk)" stroke="var(--line-2)" stroke-width="1.5"/>
+        <path d="M112 52h116l-11 80h-94z" fill="var(--sage)" opacity=".18"/>
+        <g fill="var(--ink-3)" opacity=".85">
+          <circle cx="128" cy="66" r="4"/><circle cx="152" cy="78" r="5"/><circle cx="185" cy="63" r="4.5"/>
+          <circle cx="210" cy="80" r="4"/><circle cx="140" cy="99" r="5"/><circle cx="172" cy="94" r="4"/>
+          <circle cx="200" cy="108" r="4.5"/><circle cx="163" cy="120" r="4"/><circle cx="192" cy="128" r="3.5"/>
+          <circle cx="128" cy="122" r="3.5"/>
+        </g>
+        <rect x="104" y="38" width="132" height="12" rx="3" fill="#B98467"/>
+        <g stroke="var(--cobalt)" stroke-width="2" stroke-linecap="round" fill="none">
+          <path d="M158 150v10"/><path d="M170 150v14"/><path d="M182 150v10"/>
+        </g>
+        <text x="16" y="70" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-2)">PUMICE</text>
+        <text x="16" y="82" font-family="Newsreader, serif" font-size="10" fill="var(--ink-3)">holds air,</text>
+        <text x="16" y="93" font-family="Newsreader, serif" font-size="10" fill="var(--ink-3)">not water</text>
+        <text x="252" y="70" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-2)">TERRACOTTA</text>
+        <text x="252" y="82" font-family="Newsreader, serif" font-size="10" fill="var(--ink-3)">breathes on</text>
+        <text x="252" y="93" font-family="Newsreader, serif" font-size="10" fill="var(--ink-3)">all sides</text>
+        <text x="200" y="163" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--cobalt)">FREE DRAIN</text>
+      </svg>
+      <figcaption>Pumice, lava or scoria, expanded shale, and hard-fired porous clay all work. A blend of two or three is an improvement over any one alone.</figcaption>
+    </figure>
+    <div>
+      <h3>The advanced mix</h3>
+      <p>Think of it in terms of organic and inorganic. The organic fraction is there to hold nutrients and water. The inorganic fraction is there to hold air. Anything that fails at one of those jobs does not belong in the mix.</p>
+    </div>
+    <div>
+      <h4>The organic portion</h4>
+    </div>
+    <ul class="ticks">
+      <li>A high quality garden soil or top soil. Sift through 1/8&Prime; mesh to remove large chunks and any bark.</li>
+      <li>Optionally enrich with earthworm castings at 1:3 to 1:4.</li>
+      <li>Further optional amendments: alfalfa meal, kelp, fish bone meal, insect frass. Compost the organic mix well before using it if you add these, and avoid high-nitrogen-only additions like manure or blood meal.</li>
+      <li><b>Not peat moss.</b> It has strange water absorption properties: once it goes dry it turns hydrophobic and takes a long time to soak up water again. A surfactant in the water helps bring it back around.</li>
+      <li><b>Not coir</b>, because of its low nutrient holding capacity. If the organic fraction is not good at holding nutrients or water, it is not doing its job.</li>
+    </ul>
+    <div>
+      <h4>The inorganic portion</h4>
+    </div>
+    <ul class="ticks">
+      <li>The goal is a durable, porous particle with medium-low density.</li>
+      <li>For a single ingredient: pumice, lava or scoria, expanded shale, or a hard-fired porous clay product.</li>
+      <li>Clay products by particle size: <b>Turface</b> (seedling), <b>Espoma Soil Perfector</b> (medium), <b>Seramis</b>, and <b>LECA</b> or clay pebbles (large).</li>
+      <li>Under 5% each, optional: granite from chicken grit or landscaping decomposed granite for micronutrients, basalt for the same, limerock or limestone or oyster shell for calcium, and zeolite to improve the nutrient holding capacity of the mix. Soak zeolite in nutrient solution before mixing it in.</li>
+      <li><b>Biochar</b> is newer and shows a lot of promise: the nutrient holding of an organic with the water and drainage behavior of an inorganic. It must be pre-charged, or it soaks up everything you feed your plants for a while before it equalizes.</li>
+      <li>Sift the inorganics over window screen to remove fines, dust and sand. Washing or rinsing is optional but helps further.</li>
+    </ul>
+    <div class="note note-stop">
+      <span class="tag">Leave out</span>
+      <p><b>Vermiculite and perlite</b> retain too much moisture, and perlite floats out of suspension in a mix. <b>Sand</b> causes compaction and reduces aeration and drainage.</p>
+    </div>
+    <div class="panel">
+      <span class="blk-k">Particle size follows plant size</span>
+      <div class="ladder">
+        <div class="rung"><i class="dot-8"></i><b>1/8&Prime;</b><span>seed sowing</span></div>
+        <div class="rung"><i class="dot-12"></i><b>1/8&ndash;1/4&Prime;</b><span>seedlings</span></div>
+        <div class="rung"><i class="dot-16"></i><b>1/8&ndash;3/8&Prime;</b><span>yearlings</span></div>
+        <div class="rung"><i class="dot-20"></i><b>3/8&Prime;</b><span>adults</span></div>
+      </div>
+      <p class="panel-note">Increase the size of the inorganic particles at every up-pot as they mature. Avoid anything over 1/2&Prime;.</p>
+    </div>
+    <div>
+      <h3>How much inorganic</h3>
+      <p>The ratio depends on your climate, your watering frequency, the species and the pot type. Fifty-fifty in terracotta, unglazed clay or fabric is the starting point.</p>
+    </div>
+    <div class="panel ratio">
+      <div class="ratio-row">
+        <div class="ratio-k"><b>Terracotta, clay or fabric</b><span>50 / 50</span></div>
+        <div class="ratio-bar"><i class="r-inorg" style="width:50%"></i><i class="r-org" style="width:50%"></i></div>
+      </div>
+      <div class="key">
+        <span><i class="swatch r-inorg"></i> Inorganic (air)</span>
+        <span><i class="swatch r-org"></i> Organic (water and food)</span>
+      </div>
+      <p class="panel-note">Push the inorganic share higher than that for glazed ceramic or plastic pots, for <i>bridgesii</i> specifically, and if you live somewhere very wet or humid.</p>
+    </div>
+    <div>
+      <h3>The pot itself</h3>
+    </div>
+    <div class="specs">
+      <div class="spec"><span class="spec-k">Fabric</span><span class="spec-v">Best final home<small>Air-prunes roots and prevents circling and binding. Dries extremely fast.</small></span></div>
+      <div class="spec"><span class="spec-k">Terracotta</span><span class="spec-v">Dries fast<small>But the pot retains moisture and can sometimes make circling and root binding worse.</small></span></div>
+      <div class="spec"><span class="spec-k">Plastic</span><span class="spec-v">Good when young<small>Soil stays damp a little longer, which helps their growth.</small></span></div>
+      <div class="spec"><span class="spec-k">Glazed ceramic</span><span class="spec-v">Avoid<small>No good results.</small></span></div>
+    </div>
+    <div class="note note-do">
+      <span class="tag">At potting</span>
+      <p>You must have a drainage hole, and no saucer. Add a mycorrhizal fungi product such as Mykos at time of potting, and apply granular mycorrhizae directly to the roots at every up-pot after that.</p>
+    </div>
+    <div class="note note-utah">
+      <span class="tag">Buying it</span>
+      <p>Buying soil and rocks online gets very expensive because of shipping. Scout locally: nurseries, garden centers, hydroponics stores, landscape supply yards and irrigation supply shops. As one real example, 3/8&Prime; lava runs about <b>$1.63/qt online against $0.26/qt locally</b>. Buying the larger bags helps a lot too.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="water">
+  <div class="sec-head">
+    <span class="eyebrow">Water</span>
+    <h2>Drench it, then let it go all the way dry</h2>
+    <p>For adult rooted plants: when the soil gets thoroughly dry all the way through, it is fine to water that day, or to let it sit dry for a few more days. That is the entire schedule.</p>
+  </div>
+  <div class="stack">
+    <ul class="ticks">
+      <li>When you water, <b>drench the soil.</b></li>
+      <li><b>Submerging the pot up to the soil line until saturated is the preferred method.</b> Top watering can be fine, and is required for larger pots.</li>
+      <li>Keep splashing wet soil up onto the column to a minimum. It can sometimes invite fungal issues.</li>
+    </ul>
+    <div class="note note-do">
+      <span class="tag">The temperature rule</span>
+      <p>Keep watering as long as daily highs are <b>60&deg;F or above</b> and nightly lows are <b>above 35&deg;F</b>. If temperatures are expected to drop below that range, let the soil go dry before it happens.</p>
+    </div>
+    <div>
+      <h3>Dormancy</h3>
+      <p>When temperatures are below 60&deg;F and the soil is dry, they go dormant and stop growing. They can survive a dormant state like that for as long as a couple of years with no water. Doing nothing is genuinely the correct action.</p>
+      <p>They can also survive below-freezing temperatures at night, as long as the soil is dry and the day temperatures go back above freezing. Placing a cup over the column tips to protect them from frost is not a bad idea.</p>
+    </div>
+    <div class="note note-stop">
+      <span class="tag">Rain</span>
+      <p>If it rains many days in a row in your area, at any time of year, you will need to protect them with an awning, shelter, greenhouse or similar. Plants in the ground with well-draining soil around them are much less of a worry: they get better drainage and are more resilient overall.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="feed">
+  <div class="sec-head">
+    <span class="eyebrow">Feeding</span>
+    <h2>Without nutrients they get sick and die</h2>
+    <p>This is not optional and it is not a light touch. Most of these plants are badly underfed.</p>
+  </div>
+  <div class="stack">
+    <div>
+      <h3>What to use</h3>
+      <p>Masterblend three-part formula, which includes Epsom salts and calcium nitrate. Use as directed on the label. Amount and frequency depend on your exact soil composition and conditions. MegaCrop and MaxiGro are fine too.</p>
+    </div>
+    <div>
+      <h3>Measure it</h3>
+      <p>Get a cheap <b>TDS</b> meter (total dissolved solids). It probably has more than one mode: use <b>EC</b>, electrical conductivity, rather than <b>PPM</b>, parts per million. The PPM unit has multiple standards and more confusing conversions, so just avoid it.</p>
+    </div>
+    <ul class="ticks">
+      <li>Test your starting water. Aim for a low number here. If your starting water is over <b>0.35</b> you could probably use a water filter.</li>
+      <li>Top water the plant with regular water to about 20% runoff, collect the runoff, and test it.</li>
+      <li>Subtract the starting water value. What remains is your soil&rsquo;s TDS.</li>
+    </ul>
+    <div class="panel">
+      <span class="blk-k">Soil EC, after subtracting your source water</span>
+      <div class="ec-bar">
+        <i style="background:var(--sage-soft)"></i><i style="background:var(--sage)"></i><i style="background:var(--sun)"></i><i style="background:var(--alarm)"></i>
+      </div>
+      <div class="ec-marks"><span>1.0 weak</span><span>2.0 full</span><span>3.0 strong</span><span>4.0 toxic</span></div>
+      <p class="panel-note">If you want to go over 2.0, work your way up gradually. Modify your feed schedule and strength to reach the runoff level you are aiming for.</p>
+    </div>
+    <div class="note note-do">
+      <span class="tag">The regimen</span>
+      <p>Bottom water with fertilizer solution at <b>2.5 to 3.0 EC on four out of every five waterings</b>. On the fifth, flush by top watering with plain unfertilized water. If your soil mix is different, your schedule and strength could be quite different.</p>
+    </div>
+    <div>
+      <h3>The flush</h3>
+      <p>That fifth watering is a great time to use a beneficial soil microbe addition. Recharge helps the nutrients in the soil break down into a form the plant can use, and it also provides plant growth hormones, improves the nutrient retention of the soil, and prevents the soil from going hydrophobic.</p>
+      <p>Keep checking your runoff TDS and pH occasionally, especially if you see anything funny going on, so you do not end up with nutrient salt buildup or a runaway pH.</p>
+    </div>
+    <div>
+      <h3>pH and lockout</h3>
+      <p>Balance your feed to <b>6.0&ndash;6.5</b>, which is also the target soil pH. Test it with strips on collected runoff water. Use white vinegar to bring pH down and baking soda to bring it up.</p>
+      <p>To check soil pH directly, mix some of the soil into a bit of distilled water to a mud-like consistency, wait about an hour, then test. If your soil pH is out of the target range your roots will not absorb some nutrients, which is known as lockout, and your plant&rsquo;s health will decline.</p>
+    </div>
+    <ul class="ticks">
+      <li>Soil pH tends to drift toward feed pH, but soil components and nutrients shift it too.</li>
+      <li><b>Raises pH:</b> lime, and too much nitrate nitrogen.</li>
+      <li><b>Lowers pH:</b> some lava rock, and too much ammonia nitrogen.</li>
+    </ul>
+    <div>
+      <h3>Foliar feeding</h3>
+      <p>Liquid kelp gives plant growth hormones and boosts growth. Maxicrop works well and Jones Juice is another highly recommended product. Mist the columns <b>after dark</b>; the plants absorb through their pores. Optionally add humic or fulvic acid, which acts synergistically with kelp to increase absorption.</p>
+      <p>Humic and fulvic acids can also be used as a soil soak to break down clay elements in the soil, if you want to increase your soil&rsquo;s water holding or nutrient holding capacity.</p>
+      <p>You can also foliar feed a nutrient solution like Masterblend to cuttings that have no roots yet, if they are looking rough but cannot take up their own nutrients.</p>
+    </div>
+    <div class="note note-sun">
+      <span class="tag">Blue farina</span>
+      <p>For cacti carrying a blue waxy farina layer, adding <b>cocowet</b> to the foliar feed helps it spread evenly, stay wet across the surface, increase absorption, and avoid damaging the farina. For the best farina results, avoid foliar feeding plants with strong blue layers altogether.</p>
+    </div>
+    <div class="note note-utah">
+      <span class="tag">Salt Lake water</span>
+      <p>Adapted, not sourced: valley tap runs hard and alkaline and will often land above the 0.35 EC threshold on its own. Test yours before building a feed schedule around these numbers, and expect the flush to matter more here than it would on soft water.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="sun">
+  <div class="sec-head">
+    <span class="eyebrow">Light</span>
+    <h2>As much as they will take without burning</h2>
+    <p>That is the whole target. In areas and seasons where the sun is intense, some peak summer days run a little strong and they would probably appreciate shade from 2 to 5 p.m., but it is not required.</p>
+  </div>
+  <div class="stack">
+    <figure class="figure">
+      <svg viewBox="0 0 340 162" role="img" aria-label="A summer day from 6am to 8pm: full sun is wanted throughout, with 30 to 40 percent shade cloth from 2pm to 5pm on the hottest days only">
+        <path d="M28 96C28 50 90 26 170 26s142 24 142 70" fill="none" stroke="var(--line-2)" stroke-width="1.2" stroke-dasharray="3 4"/>
+        <circle cx="72" cy="47" r="9" fill="var(--sage)"/>
+        <circle cx="170" cy="27" r="11" fill="var(--sun)"/>
+        <circle cx="262" cy="43" r="9" fill="var(--sage)"/>
+        <rect x="28" y="106" width="284" height="16" rx="3" fill="var(--sunk)"/>
+        <rect x="28" y="106" width="162" height="16" rx="3" fill="var(--sage)"/>
+        <rect x="190" y="106" width="61" height="16" fill="var(--sun)" opacity=".75"/>
+        <rect x="251" y="106" width="61" height="16" rx="3" fill="var(--sage)"/>
+        <g font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--ink-3)" letter-spacing=".5">
+          <text x="28" y="136">6a</text><text x="182" y="136">2p</text><text x="243" y="136">5p</text><text x="296" y="136">8p</text>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" letter-spacing=".8">
+          <text x="34" y="101" fill="var(--paper)">AS MUCH AS IT WILL TAKE</text>
+          <text x="28" y="154" fill="var(--sun)">30&ndash;40% SHADE CLOTH, HOTTEST DAYS ONLY</text>
+        </g>
+      </svg>
+      <figcaption>30&ndash;40% shade cloth covering them during those hours on the hottest days of summer prevents sunburn and helps keep potted plants from overheating.</figcaption>
+    </figure>
+    <ul class="ticks">
+      <li><b>All light increases must be made gradually</b>, or sunburn happens.</li>
+      <li>Sunburn looks like yellowing, either splotchy or at the tip and near the spines. It turns into permanent scarring.</li>
+      <li>Not enough light leads to skinny new growth, which is called etiolation.</li>
+    </ul>
+    <div>
+      <h3>Indoors</h3>
+      <p>These plants do not do well indoors unless they are under a very strong grow light, or right next to a south-facing window that gets several hours of direct sun per day. If you have to grow adult plants indoors away from direct sunlight, you want a serious grow light, not a cheap one. Viparspectra is acceptable on the budget end; Mars Hydro and Spider Farmer above that.</p>
+    </div>
+    <div class="note note-do">
+      <span class="tag">PPFD targets</span>
+      <p><b>500 PPFD</b>, a measure of how much usable light actually lands on the plant, gets you maintenance during near-dormancy temperatures, with some slight etiolation possible. For full healthy vigorous growth, aim for <b>1000</b>.</p>
+    </div>
+    <div class="note note-utah">
+      <span class="tag">Utah</span>
+      <p>Adapted, not sourced: Salt Lake sits above 4,200 ft, so the same clock hours carry more UV than they would nearer sea level. Treat that 2 to 5 p.m. shade cloth as closer to required than optional here, particularly for a plant that has just come out of a winter indoors.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="winter">
+  <div class="sec-head">
+    <span class="eyebrow">Winter</span>
+    <h2>The one rule Salt Lake breaks</h2>
+    <p>The source guidance is that these survive below-freezing nights as long as the soil is dry and day temperatures recover above freezing. A Salt Lake winter does not reliably offer that, so this section is adapted rather than followed.</p>
+  </div>
+  <div class="stack">
+    <ul class="ticks">
+      <li>The species is rated to roughly 20&deg;F bone dry. The valley is USDA zone 7a to 7b, where annual lows reach 0 to 5&deg;F. That gap is why the pot comes inside.</li>
+      <li>Use the temperature rule to decide <b>when to stop watering</b>: once nightly lows are heading below 35&deg;F, let the soil go dry and leave it dry.</li>
+      <li>Then move it indoors before hard freezes settle in, generally through October.</li>
+      <li>Indoors it needs a very strong grow light or a south-facing window with several hours of direct sun. Anything less and it etiolates.</li>
+      <li>500 PPFD is enough to hold it through dormancy. Below that, expect stretching.</li>
+      <li>A dormant, dry plant holds for a couple of years without water. There is nothing to do and nothing to fix.</li>
+    </ul>
+    <div class="note note-stop">
+      <span class="tag">Cold plus wet</span>
+      <p>Rot is caused by soil that is too wet for too long, or wet at too low a temperature. Anything left outside through a wet stretch needs an awning, shelter or greenhouse. A cup over the column tips is decent frost protection for a light freeze.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="year">
+  <div class="sec-head">
+    <span class="eyebrow">The year</span>
+    <h2>Twelve months in one picture</h2>
+    <p>Bar height is roughly how much water it wants. The strip underneath is where it lives. Both come from applying the 60&deg;F and 35&deg;F rule to Salt Lake&rsquo;s monthly normals.</p>
+  </div>
+  <div class="year">
+    <div class="ycols" id="ycols"></div>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--cobalt)"></i> Water demand</span>
+      <span><i class="swatch p-out"></i> Outdoors</span>
+      <span><i class="swatch p-edge"></i> Moving</span>
+      <span><i class="swatch p-in"></i> Indoors</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="cuts">
+  <div class="sec-head">
+    <span class="eyebrow">Cuttings</span>
+    <h2>Cutting, callousing and rooting</h2>
+    <p>Sometimes you buy an unrooted cutting. Sometimes you want to cut off a column to propagate. Sometimes you have to cut because of rot or other disease. The handling is the same either way.</p>
+  </div>
+  <div class="steps">
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">1</span>
+        <div><h4>Cut</h4><p class="step-when">STERILIZE THE BLADE BEFORE AND AFTER EVERY CUT</p></div>
+      </div>
+      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="A sterilized blade slicing a pup away from the mother plant">
+        <g fill="var(--plant)">
+          <rect x="100" y="12" width="44" height="94" rx="22"/>
+          <rect x="142" y="52" width="16" height="14" rx="7"/>
+          <rect x="156" y="38" width="42" height="42" rx="21"/>
+        </g>
+        <g fill="var(--ink)" opacity=".13">
+          <rect x="112" y="26" width="4" height="66"/><rect x="126" y="26" width="4" height="66"/>
+        </g>
+        <g stroke="#C9A227" stroke-width="1.5" stroke-linecap="round" fill="none">
+          <path d="M100 34l-10-4M100 34l-11 3M100 64l-10-4M100 64l-11 3M100 92l-10-4M100 92l-11 3"/>
+        </g>
+        <path d="M150 34v58" stroke="var(--alarm)" stroke-width="2" stroke-dasharray="4 4"/>
+        <path d="M262 34l-96 30 96 12z" fill="var(--ink-3)" opacity=".35"/>
+        <path d="M262 34l-96 30 96 12z" fill="none" stroke="var(--ink-2)" stroke-width="1.5" stroke-linejoin="round"/>
+        <rect x="258" y="40" width="46" height="14" rx="4" transform="rotate(8 258 40)" fill="var(--ink-2)"/>
+        <text x="118" y="116" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--alarm)" letter-spacing=".8">STERILIZE BEFORE AND AFTER</text>
+      </svg>
+      <div class="step-body">
+        <p>Sterilize the knife with alcohol before and after each individual cut, to avoid spreading disease from one cut to the next.</p>
+        <p>If you are cutting rot away, inspect the inside of the cut. If there are dark or discolored parts of the inner flesh, re-sterilize and cut more. Keep going until the face is clean.</p>
+        <p>Immediately after cutting you can optionally apply <b>powdered sulphur</b> to the cut end to protect it from disease and rot, and/or <b>powdered rooting hormone</b>. If you bought the cutting already cut, do not worry about any of that.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">2</span>
+        <div><h4>Callous</h4><p class="step-when">ABOUT TWO WEEKS. FASTER IN FRONT OF A FAN.</p></div>
+      </div>
+      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="The cut pup standing upright in a shaded indoor spot with air moving around it, forming a dry scab on the cut face">
+        <rect x="46" y="98" width="248" height="4" rx="2" fill="var(--line-2)"/>
+        <rect x="148" y="26" width="44" height="72" rx="22" fill="var(--plant)"/>
+        <g fill="var(--ink)" opacity=".13"><rect x="162" y="36" width="4" height="54"/><rect x="176" y="36" width="4" height="54"/></g>
+        <rect x="156" y="36" width="10" height="48" rx="5" fill="#FFF" opacity=".22"/>
+        <path d="M150 94h40" stroke="var(--sun)" stroke-width="5" stroke-linecap="round"/>
+        <g stroke="var(--cobalt)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7">
+          <path d="M56 48c14-7 24 7 38 0"/><path d="M56 66c14-7 24 7 38 0"/>
+          <path d="M246 48c14-7 24 7 38 0"/><path d="M246 66c14-7 24 7 38 0"/>
+        </g>
+        <text x="112" y="118" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--sun)" letter-spacing=".8">DRY, SHADED, AIR MOVING</text>
+      </svg>
+      <div class="step-body">
+        <p>Let cuttings callous by putting them somewhere shaded and dry with good airflow. Sitting in front of a fan can do the job quickly.</p>
+        <p>After about two weeks there should be a <b>light tan scab</b> over the cut, and it is ready to try to root.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">3</span>
+        <div><h4>Root</h4><p class="step-when">VERY LIGHT WATER. NEVER SOGGY.</p></div>
+      </div>
+      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="The calloused pup resting on the surface of dry gritty mix in a small pot, not buried">
+        <path d="M116 44h108l-11 62a7 7 0 0 1-7 6h-72a7 7 0 0 1-7-6z" fill="var(--sunk)" stroke="var(--line-2)" stroke-width="1.5"/>
+        <rect x="112" y="38" width="116" height="11" rx="3" fill="#B98467"/>
+        <g fill="var(--ink-3)" opacity=".8">
+          <circle cx="132" cy="62" r="3.5"/><circle cx="150" cy="72" r="4"/><circle cx="196" cy="64" r="4"/>
+          <circle cx="212" cy="76" r="3.5"/><circle cx="168" cy="86" r="4"/><circle cx="198" cy="94" r="3.5"/>
+        </g>
+        <rect x="152" y="6" width="38" height="50" rx="19" fill="var(--plant)"/>
+        <g fill="var(--ink)" opacity=".13"><rect x="164" y="14" width="4" height="38"/><rect x="176" y="14" width="4" height="38"/></g>
+        <path d="M155 53h32" stroke="var(--sun)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M250 56h44M250 56l8-6M250 56l8 6" stroke="var(--ink-3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <text x="248" y="76" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--ink-3)">SURFACE</text>
+        <text x="248" y="88" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--ink-3)">ONLY</text>
+      </svg>
+      <div class="step-body">
+        <p>The idea is to tease roots out with some very light water exposure, without letting the cut end sit soggy or damp for long, which will rot it. There are a few ways to do it:</p>
+        <p><b>One.</b> Put it cut-end down in some porous inorganic and water it very lightly every so often.</p>
+        <p><b>Two.</b> Set the cut on some rich soil and stake the cutting upright. You would not water much using this method.</p>
+        <p><b>Three.</b> Plant it straight into a permanent pot and soil mix and water it extremely sparingly for a long time.</p>
+        <p>Do not bury the cut too deep. The more green flesh below the surface, the higher the chance of rot.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">4</span>
+        <div><h4>Watch for it to plump</h4><p class="step-when">THE SIGN THAT ROOTS ARE DRINKING</p></div>
+      </div>
+      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="The pot with new roots forming below the surface, and the column plumping after a small drink">
+        <path d="M116 40h108l-11 62a7 7 0 0 1-7 6h-72a7 7 0 0 1-7-6z" fill="var(--sunk)" stroke="var(--line-2)" stroke-width="1.5"/>
+        <rect x="112" y="34" width="116" height="11" rx="3" fill="#B98467"/>
+        <rect x="152" y="4" width="38" height="46" rx="19" fill="var(--plant)"/>
+        <g fill="var(--ink)" opacity=".13"><rect x="164" y="12" width="4" height="34"/><rect x="176" y="12" width="4" height="34"/></g>
+        <g stroke="var(--paper)" stroke-width="2" fill="none" stroke-linecap="round" opacity=".95">
+          <path d="M168 50c-6 12-16 16-22 30"/><path d="M172 50c1 14 8 20 10 32"/><path d="M170 50c-2 16 0 22-4 34"/>
+        </g>
+        <g stroke="var(--sun)" stroke-width="1.5" stroke-linecap="round" opacity=".6">
+          <path d="M42 20l14 10"/><path d="M40 44h17"/><path d="M42 68l14-10"/>
+        </g>
+        <text x="248" y="52" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--sage)" letter-spacing=".6">PLUMP TEST</text>
+        <text x="248" y="66" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--ink-3)">SMALL DRINK</text>
+      </svg>
+      <div class="step-body">
+        <p>With the third method the tell is this: when you give it a small amount of water and you can see the column <b>plump a little</b>, its roots are taking up water. From there you can move onto a normal watering schedule.</p>
+        <p>If a rootless cutting is looking rough in the meantime, you can foliar feed it a nutrient solution such as Masterblend. It cannot take anything up through roots it does not have yet.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="seed">
+  <div class="sec-head">
+    <span class="eyebrow">From seed</span>
+    <h2>Starting from scratch</h2>
+    <p>This protocol comes from thousands of seeds sown across 61 varieties and five seasons, one batch each fall, with the losses that taught it.</p>
+  </div>
+  <div class="note note-do" style="margin-bottom:1.25rem">
+    <span class="tag">The short version</span>
+    <p>Sterilize everything, sow on the surface of damp vermiculite, seal the container, hold it at 80&deg;F out of direct sun, and do not open it for months.</p>
+  </div>
+  <div class="steps">
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">1</span>
+        <div><h4>Store the seed</h4><p class="step-when">MONTHS ON A SHELF. YEARS IN THE FRIDGE.</p></div>
+      </div>
+      <div class="step-body">
+        <p>Seeds are fine in an envelope or baggie on a dark shelf for months, but eventually the germination rate gradually declines.</p>
+        <p>To hold viability for a year or three, you want lower humidity and lower temperature: transfer to small paper envelopes, put those in a doubled-up Ziploc with a quality desiccant pack, and keep it in the fridge.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">2</span>
+        <div><h4>Sterilize everything</h4><p class="step-when">180&deg;F INTERNAL FOR 30 MINUTES</p></div>
+      </div>
+      <div class="step-body">
+        <p>Seeds and seedlings need elevated humidity. You can mist three or four times a day around the clock for the first couple of months, or you can seal them up and not water at all for months. Clear plastic wrap holds humidity better than lids. To seal them, sterilization is mandatory, or fungus gnat eggs, algae or mold take over.</p>
+        <p><b>Vermiculite and perlite are sterile.</b> Pumice and turface can be boiled. Soil needs to reach 180&deg;F for 30 minutes internally, checked with a meat thermometer, or 220&deg;F instantaneously. In the oven, about 30 minutes at 300&ndash;350&deg;F works. In the microwave, moisten the soil, use freezer bags cracked open to vent, and run it 3 minutes, then check the internal temperature.</p>
+        <p>The other common source of contamination is on the seed casing. A <b>diluted hydrogen peroxide bath</b> does wonders for this, and also oxygenates and hydrates the seeds, improving germination times and rates. Pure 3% H&#8322;O&#8322; for an hour will sterilize. Six hours at 50:50 3% H&#8322;O&#8322; to distilled water, or 1:10 for 24 hours, does more for germination while keeping the sterilizing benefit.</p>
+        <p>While sowing, keep work surfaces wiped clean and wash hands and tools too.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">3</span>
+        <div><h4>100% vermiculite</h4><p class="step-when">SIFTED IN TWO GRADES</p></div>
+      </div>
+      <div class="step-body">
+        <p>Earlier attempts using peat and perlite brought fungus gnats and water retention problems. A later mix of pumice, turface and sterilized composted soil sifted through 1/8&Prime; window screen, topped with fine vermiculite, gave better results but still had issues.</p>
+        <p>After proving it out, the strong advice is <b>pure vermiculite</b>. Sift through 1/8&Prime; mesh for the main portion, then sift an extra fine layer through window screen to make a top layer roughly 3/16&Prime; deep. It eliminates the chance of most pests, fungus and algae, and appears to have no downsides.</p>
+        <p>Moisture level before sowing is critical: <b>squeeze a fistful hard and only a few drops should come out.</b> Vermiculite carries no nutrients of its own, so fertilization begins as soon as you uncover.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">4</span>
+        <div><h4>Containers and sowing</h4><p class="step-when">ON THE SURFACE. LIGHT IS REQUIRED.</p></div>
+      </div>
+      <div class="step-body">
+        <p>The particular takeout containers matter. Look for clear containers of sturdy plastic, not thin and flimsy, at least 4&Prime; deep to allow enough growth before up-potting, and cubic to maximize space on the heat mat. You want something you can puncture holes in the bottom of later, once the containers are unsealed.</p>
+        <p>To sow: pour the distilled water through a paper towel draped over a cup to catch the seeds, dab them dry, brush them onto a paper plate, then transfer to a folded paper to use as a sowing tool.</p>
+        <p>Sow <b>3/8&Prime; apart</b>, which comes out to four to six seeds per square inch. Seeds sown too closely together slow significantly. Sow directly on top of the media and <b>do not top dress or push them down</b>. Make sure the top layer is fine enough that seeds do not fall into cracks. Mist over the top with purified or distilled water, then wrap well with plastic wrap.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">5</span>
+        <div><h4>Heat and shade</h4><p class="step-when">68&ndash;86&deg;F. 80&deg;F CONSTANT.</p></div>
+      </div>
+      <div class="step-body">
+        <p>Set the heat mat on a foam insulation board to direct the heat up. Run 80&deg;F constant during germination, then after a few weeks move to 80&deg;F day and 60&deg;F night using a thermostat with day and night settings. Install the temperature probe in a <b>dummy container</b> of soil kept at the same moisture as the others, through a hole poked in the side and sealed with silicone, rather than reading air. If you are germinating indoors where temps are already 68&ndash;86&deg;F, you do not need the mat after germination.</p>
+        <p>Keep sealed containers out of direct sunlight. They are mini greenhouses and <b>just an hour in sun can cook them and kill all the seeds.</b> Indirect sun is fine, great even. Think of it in terms of shadow: <b>in a shadow is indirect, casting a shadow is direct.</b> Even some paper laid over them that diffuses light through is enough. You can germinate with bright indirect sun and no artificial light at all.</p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="step-top">
+        <span class="step-n">6</span>
+        <div><h4>Uncover, feed, ramp the light</h4><p class="step-when">1.5 TO 6 MONTHS. TWO WEEKS TO UNCOVER.</p></div>
+      </div>
+      <div class="step-body">
+        <p>Check on your seeds at minimum every couple of days, to catch light or temperature problems and contamination early. Somewhere between 1.5 months after germination, when they have at least a few rows of spines, and 6 months, it is time to acclimate them to ambient humidity.</p>
+        <p>Poke holes in the plastic wrap, expand the holes, then remove the wrap over the course of about two weeks. Mist a few times a day immediately after removing it, tapering to once a day and then not at all. Poke drainage holes in the bottom of the containers at this point.</p>
+        <p>Introduce fertilizer slowly and gradually. <b>0.7 EC is a good starting point</b>, and they can be ramped up to full strength fairly quickly.</p>
+        <p>Let the soil get on the drier side <b>without ever going bone dry</b>. These do not have much ability to hold water and will get stressed and stunted if they go too dry. When misting, the soil can go dry below the surface and be hard to notice, so bottom watering on occasion is good practice.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <figure class="figure" style="margin-top:1.5rem">
+    <svg viewBox="0 0 340 156" role="img" aria-label="Light ramping from about 60 PPFD at germination to 100 at month two, 500 at two inches tall, and 1000 at full sun">
+      <line x1="20" y1="118" x2="320" y2="118" stroke="var(--line-2)" stroke-width="1"/>
+      <g fill="var(--sun)" opacity=".9">
+        <rect x="34" y="100" width="46" height="18" rx="2"/>
+        <rect x="110" y="86" width="46" height="32" rx="2"/>
+        <rect x="186" y="43" width="46" height="75" rx="2"/>
+        <rect x="262" y="24" width="46" height="94" rx="2"/>
+      </g>
+      <g font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700" fill="var(--ink)" text-anchor="middle">
+        <text x="57" y="94">60</text><text x="133" y="80">100</text><text x="209" y="37">500</text><text x="285" y="18">1000</text>
+      </g>
+      <g font-family="JetBrains Mono, monospace" font-size="7.5" fill="var(--ink-3)" text-anchor="middle" letter-spacing=".4">
+        <text x="57" y="132">GERMINATION</text><text x="133" y="132">MONTH 2</text><text x="209" y="132">2&Prime; TALL</text><text x="285" y="132">FULL SUN</text>
+      </g>
+      <text x="20" y="150" font-family="JetBrains Mono, monospace" font-size="7.5" fill="var(--ink-3)" letter-spacing=".4">PPFD, LOG SCALE</text>
+    </svg>
+    <figcaption>A 2&prime; T5HO with two bulbs, started about 18&Prime; from the soil with only one tube in, gives roughly 62 PPFD. Add the second tube after a month for about 103, then move it closer as they grow. Aim for 500 by the time they are a couple of inches tall, then transition to full sun or 1000 after that.</figcaption>
+  </figure>
+
+  <div class="stack" style="margin-top:1.25rem">
+    <ul class="ticks">
+      <li>Start at 12 hours on and 12 off, and increase the day length once the light is as close as you are comfortable with.</li>
+      <li>Light should be ramped up continuously and very gradually. Moving the fixture closer is one way to do it. <b>Keep pushing until you see light stress, then back off, let them recover, and push again.</b></li>
+      <li>They should be able to take full sun by the time they are an inch and a half tall, which is roughly a tenfold increase from germination levels.</li>
+      <li>Surround the growing area with textured mylar, or matte white like spray-painted cardboard or butcher paper. Measured with a light meter, this <b>doubled the light</b> the plants received.</li>
+      <li>Barrina T5 LEDs are sufficient for germination, but within a few months you would need to move up to a dimmable panel.</li>
+      <li>When spring temperatures make the growing space too warm, move them outside. Start under multiple layers of shade cloth and acclimate to full sun over about a month.</li>
+      <li>Foliar feed with liquid kelp, occasionally water in Recharge, and use granular mycorrhizae applied to the roots at up-pot. And label everything.</li>
+    </ul>
+    <div class="note note-stop">
+      <span class="tag">What goes wrong</span>
+      <p>Seedlings have been lost to sunburn, dehydration, poor soil mix, overwatering, damping off and rust fungus. Thrips and fungus gnats have had to be fought off. Trays have been tipped and dumped. Cats have pissed in the soil and killed them. Check on them every couple of days.</p>
+    </div>
+    <div class="note note-utah">
+      <span class="tag">Where to buy</span>
+      <p>The r/sanpedrocactusseeds community maintains a seed vendor list.<br><a class="linkout" href="https://www.reddit.com/r/sanpedrocactusseeds/wiki/vendors/">reddit.com/r/sanpedrocactusseeds/wiki/vendors</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="trouble">
+  <div class="sec-head">
+    <span class="eyebrow">Troubleshooting</span>
+    <h2>Squishy, or just brown?</h2>
+    <p>Rot is a discolored spot that gives when you press it. Brown that stays hard is not rot. That single test sorts most panics before you reach for a knife.</p>
+  </div>
+  <div class="compare">
+    <div class="cmp">
+      <svg viewBox="0 0 150 118" role="img" aria-label="Healthy corking: dry, hard, evenly brown bark at the base of the cactus">
+        <rect x="48" y="6" width="54" height="102" rx="26" fill="var(--plant)"/>
+        <g fill="var(--ink)" opacity=".13"><rect x="62" y="18" width="4" height="78"/><rect x="76" y="18" width="4" height="78"/><rect x="90" y="18" width="4" height="78"/></g>
+        <path d="M48 74a26 26 0 0 0 26 34h2a26 26 0 0 0 26-34z" fill="#8C7256"/>
+        <g stroke="#5E4B38" stroke-width="1.4" opacity=".65" fill="none">
+          <path d="M56 84h38"/><path d="M54 94h42"/><path d="M60 102h30"/>
+        </g>
+        <rect x="56" y="16" width="10" height="42" rx="5" fill="#FFF" opacity=".22"/>
+      </svg>
+      <span class="cmp-t" style="color:var(--sage)">Firm, dry, brown</span>
+      <p><b>It does not give under a press.</b> Brown, hard tissue working evenly up from the base is a column aging normally, and it is called corking. Nothing to do. It does not reverse and it is not supposed to.</p>
+    </div>
+    <div class="cmp">
+      <svg viewBox="0 0 150 118" role="img" aria-label="Rot: a dark, wet, irregular soft patch spreading from the base of the cactus">
+        <rect x="48" y="6" width="54" height="102" rx="26" fill="var(--plant)"/>
+        <g fill="var(--ink)" opacity=".13"><rect x="62" y="18" width="4" height="78"/><rect x="76" y="18" width="4" height="78"/><rect x="90" y="18" width="4" height="78"/></g>
+        <path d="M48 68c8 6 12-6 22 0s10 12 20 8 8-12 12-8v14a26 26 0 0 1-26 26h-2a26 26 0 0 1-26-26z" fill="#3A2530"/>
+        <g fill="#3A2530">
+          <ellipse cx="66" cy="56" rx="9" ry="6"/><ellipse cx="92" cy="48" rx="6" ry="4"/>
+        </g>
+        <path d="M62 96c6-4 12 4 20 0" stroke="#8E6A78" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <rect x="56" y="16" width="10" height="26" rx="5" fill="#FFF" opacity=".22"/>
+      </svg>
+      <span class="cmp-t" style="color:var(--alarm)">Discolored and squishy</span>
+      <p><b>It gives under a light press.</b> Caused by soil that stayed too wet for too long, or was wet at too low a temperature. Cut it today, and see the first entry below for how.</p>
+    </div>
+  </div>
+
+  <div class="stack" style="margin-top:1.5rem">
+    <details>
+      <summary>Discolored spot, squishy</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> rot. Too wet for too long, or at too low a temperature.</p>
+        <p><b>Treatment:</b> cut the rot out with a sharp knife. Disinfect the knife with alcohol before each individual cut. Keep cutting until no discoloration is visible on the inner flesh. Dust the cuts with sulphur powder and let them dry. Then reduce moisture.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Red all the way around, from the base going up</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> phosphorus or potassium deficiency. The tell is that the tip is not red, or is less red than the rest.</p>
+        <p><b>Treatment:</b> use a well balanced fertilizer.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Yellowish through the lower column, all the way around</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> nitrogen and/or calcium deficiency.</p>
+        <p><b>Treatment:</b> use a well balanced fertilizer.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Yellow or red on the ribs, tips and areoles, facing the sun</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> sunburn. The giveaway is that it is focused on the protruding portions of the ribs, the tips, and around the areoles, on the side facing the sun.</p>
+        <p><b>Treatment:</b> provide shade for a few days. Burned areas may scar. Make light reintroductions gradually.</p>
+      </div>
+    </details>
+    <details>
+      <summary>White fuzzy clusters around areoles and between ribs</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> mealybugs.</p>
+        <p><b>Treatment:</b> isolate affected plants. Remove and discard the soil. Scrub the mealies away with a toothbrush and alcohol.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Small white or tan scab-looking spots with a darker center</summary>
+      <div class="det-body">
+        <p><b>Possible cause:</b> scale insects.</p>
+        <p><b>Treatment:</b> scrub with a toothbrush and alcohol. If they dislodge easily it was likely scale. If they do not dislodge easily, it could be scarring or a fungal issue instead.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Scarring or small chunks missing from the tip</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> the tip nibbler class of pests. Grasshoppers, slugs, snails.</p>
+        <p><b>Treatment:</b> use a ring of copper sheeting around the outside of the pots, since slugs and snails do not like copper. Foliar feed a mixture of gypsum and/or Epsom salts, which leaves a powder residue that tip nibblers dislike. Check under the pots for slugs and snails.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Small discolored specks on the column</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> the sucker class of pest insects. Slow-moving speck-like insects that do not jump, with no flying insects present, could be sucker mites. If the insects are oblong and flying insects are also present, it could be thrips larvae. Aphids are another candidate. Use yellow sticky traps to help detect the presence of thrips.</p>
+        <p><b>Treatment:</b> Spinosad spray concentrate (Monterey Garden Insect Spray), or alternatively Flying Skull Nuke Em. These are food safe sprays that coat the plant and kill anything that tries to suck juice from the column. Apply every 5 to 7 days for a minimum of 3 applications, to disrupt the egg, larvae and adult life cycle. <b>Only apply at dusk</b>, or you risk wet droplets of spray magnifying light and causing small black burn marks on the column.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Tiny specks in the soil that jump when you blow on them</summary>
+      <div class="det-body">
+        <p><b>Cause:</b> springtails. Fast-moving speck-like insects on the cactus that do not fly are predator mites. Also in this group: worms, spiders, lacewings, ladybugs, praying mantis.</p>
+        <p><b>Treatment:</b> none. These are signs of a healthy ecosystem. Leave them be. They will not harm the plant.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="wrap sec reveal" id="terms">
+  <div class="sec-head">
+    <span class="eyebrow">Glossary</span>
+    <h2>Every acronym on this page</h2>
+    <p>The measurements first, then the words, then the products that get named by brand.</p>
+  </div>
+
+  <h3 style="margin-bottom:.9rem">Units and acronyms</h3>
+  <div class="gloss">
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">PPFD</span><span class="gl-f">Photosynthetic Photon Flux Density</span></div>
+      <p class="gl-d">How much <b>usable</b> light actually lands on the plant each second, counting only the wavelengths it can photosynthesize with. That is why it beats watts (which measures the bulb, not the plant) and lux (which is weighted for human eyes). For scale: a heavy overcast day is roughly 100&ndash;200, and full summer sun at midday is around 1500&ndash;2000. This guide asks for 500 to hold a plant steady and 1000 for real growth.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">EC</span><span class="gl-f">Electrical Conductivity</span></div>
+      <p class="gl-d">How well water carries an electric current, which goes up as more mineral salt dissolves in it. Fertilizer <b>is</b> dissolved salt, so EC is a direct read on how strong a feed is. Measured in millisiemens per centimeter. On the scale used here: 1.0 is weak, 2.0 is full strength, 3.0 is strong, 4.0 starts poisoning the plant.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">TDS</span><span class="gl-f">Total Dissolved Solids</span></div>
+      <p class="gl-d">Everything dissolved in the water, and effectively the same underlying measurement as EC. The cheap handheld meter you buy is sold as a &ldquo;TDS meter&rdquo; and will have both modes on it.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">PPM</span><span class="gl-f">Parts Per Million</span></div>
+      <p class="gl-d">The other mode on that meter, and the one to ignore. There are several competing PPM scales (500, 650, 700) and a number quoted on one means something different on another. EC has no such problem.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">pH</span><span class="gl-f">Acidity or alkalinity</span></div>
+      <p class="gl-d">A 0 to 14 scale. 7 is neutral, lower is acidic, higher is alkaline. Roots can only take up certain nutrients inside a narrow band, which is why the target here is 6.0&ndash;6.5 and why drifting outside it causes <b>lockout</b>, where the food is present in the soil but the plant cannot reach it.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">N-P-K</span><span class="gl-f">Nitrogen, Phosphorus, Potassium</span></div>
+      <p class="gl-d">The standard shorthand for what is in a fertilizer, often extended with <b>Ca</b> (calcium) and <b>Mg</b> (magnesium). Roughly: nitrogen drives green growth, phosphorus drives roots and flowering, potassium drives general vigor. Three-part formulas exist so you can set the ratio yourself instead of accepting a pre-blend.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">H&#8322;O&#8322;</span><span class="gl-f">Hydrogen peroxide</span></div>
+      <p class="gl-d">The drugstore bottle is 3% strength, and every dilution in the seed section is measured against that 3%. Used to sterilize the seed coat and to oxygenate and hydrate the seed before sowing.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">LECA</span><span class="gl-f">Lightweight Expanded Clay Aggregate</span></div>
+      <p class="gl-d">Fired clay pebbles, usually sold as clay balls or clay pebbles. One of the large-particle inorganic options for an adult mix.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">T5HO</span><span class="gl-f">T5 High Output</span></div>
+      <p class="gl-d">A fluorescent tube format. &ldquo;T5&rdquo; is the tube diameter, 5/8 of an inch; &ldquo;High Output&rdquo; is the brighter version. The two-foot, two-bulb fixture in the seed section is one of these.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">USDA zone</span><span class="gl-f">Plant hardiness zone</span></div>
+      <p class="gl-d">A map of average annual <b>minimum</b> winter temperature. Salt Lake Valley is 7a to 7b, meaning typical winter lows of 0 to 10&deg;F. This species is good to about 20&deg;F when bone dry, which is zone 9a. That gap is the entire reason the pot comes indoors.</p>
+    </div>
+    <div class="gl">
+      <div class="gl-t"><span class="gl-a">UV</span><span class="gl-f">Ultraviolet</span></div>
+      <p class="gl-d">The part of sunlight that does the burning. It gets stronger with altitude, which is why 4,300 ft matters for a plant that has spent the winter inside.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:1.75rem 0 .9rem">Words used here</h3>
+  <div class="gloss">
+    <div class="gl"><div class="gl-t"><span class="gl-a">Areole</span></div><p class="gl-d">The small raised cushion on a cactus where spines, branches and flowers all emerge. Unique to cacti, and the first place pests hide.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Etiolation</span></div><p class="gl-d">Stretched, skinny, pale growth caused by too little light. Permanent: the thin section never thickens back up, though healthy growth can resume above it.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Callous</span></div><p class="gl-d">The hard, dry, light tan scab that forms over a cut. A cutting is not ready to root until it has one, and skipping this is the usual reason cuttings rot.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Corking</span></div><p class="gl-d">Hard, brown, bark-like tissue forming at the base of an aging column. Completely normal. The test is that it stays <b>firm</b>, whereas rot gives under a press.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Farina</span></div><p class="gl-d">The powdery blue-white waxy bloom on the skin of some cacti. It rubs off permanently and foliar spray can mark it, which is why some growers skip foliar feeding entirely on their bluest plants.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Lockout</span></div><p class="gl-d">Soil pH drifts out of range, and roots stop absorbing whole groups of nutrients even though they are sitting right there. It looks exactly like a deficiency, so people feed more and make it worse.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Damping off</span></div><p class="gl-d">A fungal disease that collapses seedlings at the soil line. Caused by too much moisture and too little airflow, and it moves fast.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Hydrophobic</span></div><p class="gl-d">Soil that has dried so completely it now repels water instead of soaking it up. Peat is the usual offender. A surfactant brings it back.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Surfactant</span></div><p class="gl-d">Also called a wetting agent. Lowers water&rsquo;s surface tension so it spreads and penetrates instead of beading up and rolling off.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Runoff</span></div><p class="gl-d">The water that drains out of the bottom of the pot after watering. Testing it is how you find out what is actually in your soil, rather than what you meant to put there.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Flush</span></div><p class="gl-d">Watering with plain, unfertilized water so it runs right through, washing accumulated fertilizer salt out of the soil.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Foliar feeding</span></div><p class="gl-d">Spraying nutrients onto the plant body rather than into the soil, absorbed through the surface. Done after dark.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Up-pot</span></div><p class="gl-d">Moving a plant into a larger pot, and with it a coarser mix than it had before.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Air pruning</span></div><p class="gl-d">What a fabric pot does. Roots reach the wall, hit dry air, and stop rather than circling the pot, so the plant branches into a denser root system instead.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Mycorrhizae</span></div><p class="gl-d">Beneficial fungi that colonize roots and effectively extend their reach for water and nutrients. Sold as granules, applied directly to the roots at potting.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Substrate</span></div><p class="gl-d">Whatever the plant is rooted in. Deliberately not the word &ldquo;soil,&rdquo; because for seedlings it is pure vermiculite and no soil at all.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Frass</span></div><p class="gl-d">Insect droppings, sold as an organic soil amendment.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Dormancy</span></div><p class="gl-d">The state a cactus drops into below 60&deg;F with dry soil. Growth stops completely, and it can hold there for as long as a couple of years without water.</p></div>
+  </div>
+
+  <h3 style="margin:1.75rem 0 .9rem">Products named by brand</h3>
+  <div class="gloss">
+    <div class="gl"><div class="gl-t"><span class="gl-a">Fertilizer</span><span class="gl-f">Masterblend, MegaCrop, MaxiGro</span></div><p class="gl-d">Masterblend is a three-part formula, meaning you buy the base, calcium nitrate and Epsom salts separately and mix them, which is what gives you control over the ratio. The other two are single-bag alternatives and are fine.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Kelp</span><span class="gl-f">Maxicrop, Jones Juice</span></div><p class="gl-d">Liquid seaweed extracts, used as a foliar spray for the plant growth hormones rather than for nutrition.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Microbes</span><span class="gl-f">Recharge</span></div><p class="gl-d">A beneficial soil microbe product, added on the flush watering. Helps break nutrients into a usable form and keeps soil from going hydrophobic.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Root fungi</span><span class="gl-f">Mykos</span></div><p class="gl-d">A granular mycorrhizal inoculant, applied to the roots at potting and at every up-pot.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Wetting agent</span><span class="gl-f">Cocowet</span></div><p class="gl-d">Added to foliar spray so it spreads evenly across a waxy surface instead of beading, which protects the farina.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Fired clay</span><span class="gl-f">Turface, Espoma Soil Perfector, Seramis, LECA</span></div><p class="gl-d">The same class of inorganic particle at four sizes, smallest to largest. Turface is seedling grade, Soil Perfector medium, LECA the large pebbles.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Pest spray</span><span class="gl-f">Monterey Garden Insect Spray, Flying Skull Nuke Em</span></div><p class="gl-d">The first is spinosad, a bacterially derived insecticide. Both are food safe and both target the sucking pests. Apply at dusk only.</p></div>
+    <div class="gl"><div class="gl-t"><span class="gl-a">Grow lights</span><span class="gl-f">Viparspectra, Mars Hydro, Spider Farmer, Barrina</span></div><p class="gl-d">Viparspectra is the acceptable budget option; Mars Hydro and Spider Farmer sit above it. Barrina T5 LEDs are enough for germination, but within a few months seedlings need a dimmable panel.</p></div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p><b>Source.</b> Nearly everything on this page is drawn from a consolidated care and germination write-up by <b>u/TossinDogs</b> on r/sanpedrocactusseeds, covering seed sowing, seedling care and adult care. Thousands of seeds sown, 61 varieties over five seasons, hundreds of seedlings raised to maturity and sold on.<br><a class="linkout" href="https://www.reddit.com/r/sanpedrocactusseeds/s/4ZlaQmuzDO">reddit.com/r/sanpedrocactusseeds/s/4ZlaQmuzDO</a></p>
+  <p><b>What is adapted.</b> Four things here are not from that write-up, and are marked where they appear: the Salt Lake seasonal calendar and the &ldquo;Right now&rdquo; card, both derived by applying the source&rsquo;s 60&deg;F and 35&deg;F watering rule to the valley&rsquo;s monthly normals; the decision to bring the pot indoors, because zone 7a lows reach 0 to 5&deg;F against a species rated to roughly 20&deg;F; the note on hard local tap water; and the altitude note on afternoon shade.</p>
+  <p><b>On the name.</b> Long sold as <i>Trichocereus bridgesii</i>, the species was reclassified as <i>Echinopsis lageniformis</i>. Both names remain in circulation and nurseries mostly still use the old one. Commonly called the Bolivian torch: a blue-green, few-ribbed column carrying long honey-colored spines. Seedlings have been grown to 6 ft.</p>
+  <p>Written for the Salt Lake Valley: roughly 4,300 ft elevation, USDA zone 7a to 7b, 15 to 16&Prime; of annual precipitation, and summer humidity that regularly sits in the teens.</p>
+</footer>
+
+<script id="guide-app">
+/* The only dynamic thing on this page: read the date, describe the season. Nothing is stored. */
+
+var PHASES=[
+ {key:1101,name:'Dormant',mode:'Indoors',cls:'mode-in',
+  head:'Dormant and dry. Doing nothing is correct.',
+  water:'None. They hold two years dry.',
+  todo:['No water at all. Below 60\u00b0F with dry soil they simply stop.',
+        'Strong light or a south window. 500 PPFD holds it without stretching.',
+        'Check for mealybugs and scale you carried indoors with it.']},
+ {key:315,name:'Still waiting',mode:'Indoors',cls:'mode-in',
+  head:'Close, but the highs have not cleared 60\u00b0F.',
+  water:'Still none. Wait for the temperature, not the calendar.',
+  todo:['Valley highs are under 60\u00b0F, so growth has not resumed. Do not start early.',
+        'Good stretch to mix soil and price pumice and lava locally.',
+        'Plan the up-pot: bigger inorganic particles than last year, mycorrhizae on the roots.']},
+ {key:420,name:'Back outside',mode:'Moving out',cls:'mode-move',
+  head:'Highs clear 60\u00b0F. Watering can resume.',
+  water:'Drench once, then let it go all the way dry.',
+  todo:['Lows are clearing 35\u00b0F, which is the other half of the rule.',
+        'Reintroduce light gradually. Start under shade cloth and build up over about a month.',
+        'Up-pot now if it needs it. Drainage hole, no saucer, Mykos on the roots.',
+        'Start feeding. Work up toward 2.0 EC rather than jumping straight there.']},
+ {key:601,name:'Full growth',mode:'Outdoors',cls:'mode-out',
+  head:'Everything it does for the year, it does now.',
+  water:'Drench when dry all the way through. Submerge if the pot allows.',
+  todo:['Fertilizer at 2.5 to 3.0 EC on four waterings, then flush with plain water on the fifth.',
+        'Recharge on the flush. Check runoff EC and pH occasionally.',
+        '30 to 40% shade cloth from 2 to 5 p.m. on the hottest days.',
+        'Best window to take cuttings. Callous about two weeks, then root light and dry.']},
+ {key:901,name:'Winding down',mode:'Outdoors',cls:'mode-out',
+  head:'Nights are dropping. Start drying it out.',
+  water:'Stretch the gaps. Stop once lows head for 35\u00b0F.',
+  todo:['Watch the forecast and let the soil go dry before the cold arrives, not after.',
+        'Ease off the fertilizer as growth slows.',
+        'Inspect for mealybugs and scale now, before it comes indoors for months.']},
+ {key:1010,name:'Bring it in',mode:'Moving in',cls:'mode-move',
+  head:'Get it inside, and get it inside dry.',
+  water:'None. It should already be dry before it moves.',
+  todo:['Soil dry before the move. Cold plus wet is what actually kills these.',
+        'Strong light indoors or it etiolates into thin growth that never thickens.',
+        'A cup over the column tips protects anything still outside through a light freeze.']}
+];
+var MILES=[
+ [3,15,'Start watching for 60\u00b0F daily highs'],
+ [4,20,'Watering resumes as lows clear 35\u00b0F'],
+ [5,1,'Up-pot window: bigger particles, mycorrhizae on the roots'],
+ [6,1,'Best window to take cuttings'],
+ [6,15,'Shade cloth up for the hottest afternoons'],
+ [9,1,'Ease off fertilizer as nights cool'],
+ [10,1,'Let the soil go dry ahead of the first hard freeze'],
+ [10,10,'Bring the pot inside'],
+ [11,1,'Fully dormant. No water until spring.']
+];
+var YEAR=[['J',0,'in'],['F',0,'in'],['M',1,'in'],['A',5,'edge'],['M',8,'out'],['J',9,'out'],
+          ['J',10,'out'],['A',10,'out'],['S',6,'out'],['O',2,'edge'],['N',0,'in'],['D',0,'in']];
+
+var DAY=864e5;
+function midnight(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate());}
+function daysBetween(a,b){return Math.round((midnight(b)-midnight(a))/DAY);}
+function fmt(d,opt){return d.toLocaleDateString(undefined,opt||{month:'short',day:'numeric'});}
+function plural(n,w){return n+' '+w+(n===1?'':'s');}
+
+function phaseAt(now){
+  var list=[];
+  for(var y=now.getFullYear()-1;y<=now.getFullYear()+1;y++)
+    PHASES.forEach(function(p){list.push({p:p,d:new Date(y,Math.floor(p.key/100)-1,p.key%100)});});
+  list.sort(function(a,b){return a.d-b.d;});
+  var i=0;for(var j=0;j<list.length;j++)if(list[j].d<=now)i=j;
+  return {cur:list[i].p,from:list[i].d,to:list[i+1].d,next:list[i+1].p};
+}
+function nextMiles(now,n){
+  var out=[],y=now.getFullYear();
+  for(var k=0;k<2;k++)MILES.forEach(function(m){
+    var d=new Date(y+k,m[0]-1,m[1]);
+    if(d>=midnight(now))out.push({d:d,t:m[2]});
+  });
+  out.sort(function(a,b){return a.d-b.d;});
+  return out.slice(0,n);
+}
+
+var stamp='';
+function render(){
+  var now=new Date(); stamp=now.toDateString();
+  var ph=phaseAt(now), p=ph.cur;
+
+  document.getElementById('nowDate').textContent=fmt(now,{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('nowPhase').textContent=p.name;
+  var mo=document.getElementById('nowMode');
+  mo.textContent=p.mode; mo.className='now-mode '+p.cls;
+  document.getElementById('nowHead').textContent=p.head;
+  document.getElementById('nowWater').innerHTML='<b>Water: '+p.water+'</b>';
+
+  var total=daysBetween(ph.from,ph.to), gone=daysBetween(ph.from,now), left=total-gone;
+  document.getElementById('phaseFill').style.width=Math.min(100,Math.max(2,gone/total*100))+'%';
+  document.getElementById('phaseFrom').textContent='Day '+(gone+1)+' of '+total;
+  document.getElementById('phaseTo').textContent=plural(left,'day')+' → '+ph.next.name;
+
+  var ul=document.getElementById('nowList'); ul.textContent='';
+  p.todo.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+
+  var mi=document.getElementById('miles'); mi.textContent='';
+  nextMiles(now,4).forEach(function(m){
+    var n=daysBetween(now,m.d);
+    mi.insertAdjacentHTML('beforeend',
+      '<span class="md">'+fmt(m.d)+'</span><span class="mt">'+m.t+'</span><span class="mn">'+
+      (n===0?'today':'in '+n+'d')+'</span>');
+  });
+
+  var cols=document.getElementById('ycols');
+  if(!cols.childElementCount){
+    YEAR.forEach(function(y){
+      var c=document.createElement('div'); c.className='ycol';
+      c.innerHTML='<div class="ybar"><div class="yfill" style="height:'+Math.max(y[1]*7.4,3)+'px"></div></div>'+
+        '<div class="yplace p-'+y[2]+'"></div><div class="ym">'+y[0]+'</div><div class="ytoday"></div>';
+      cols.appendChild(c);
+    });
+  }
+  [].forEach.call(cols.children,function(c,i){
+    var on=i===now.getMonth();
+    c.classList.toggle('on',on);
+    c.lastElementChild.textContent=on?'▲':'';
+    c.title=fmt(new Date(now.getFullYear(),i,1),{month:'long'});
+  });
+}
+
+function boot(){
+  document.body.classList.add('js');
+  render();
+  setInterval(function(){if(new Date().toDateString()!==stamp)render();},60000);
+
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  var spy=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      chips.forEach(function(c){c.setAttribute('aria-current',String(c.getAttribute('href')==='#'+e.target.id));});
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  [].forEach.call(document.querySelectorAll('main section[id]'),function(s){spy.observe(s);});
+
+  var rev=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rev.unobserve(e.target);}});
+  },{rootMargin:'0px 0px -8% 0px'});
+  [].forEach.call(document.querySelectorAll('.reveal'),function(el){rev.observe(el);});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+</script>
+</body>
+</html>

@@ -151,7 +151,8 @@ ul.ticks li::before{content:"";position:absolute;left:1px;top:.62em;width:7px;he
 .p-edge{background:repeating-linear-gradient(90deg,var(--sun) 0 3px,transparent 3px 6px);background-color:var(--sun-soft)}
 .ym{font-family:"JetBrains Mono",monospace;font-size:.625rem;color:var(--ink-3);letter-spacing:.02em}
 .ycol.on .ym{color:var(--ink);font-weight:700}
-.ycol.on .ybar{outline:2px solid var(--ink);outline-offset:2px;border-radius:3px}
+.ycol.on{position:relative;z-index:1}
+.ycol.on .ybar{outline:2px solid var(--ink);outline-offset:0}
 .legend{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-top:1rem;font-family:"JetBrains Mono",monospace;font-size:var(--fs-xs);color:var(--ink-2)}
 .legend span{display:flex;align-items:center;gap:.4rem}
 .swatch{width:12px;height:6px;border-radius:2px;flex:none}
@@ -215,6 +216,7 @@ html{scroll-behavior:smooth}
 .mile .md{color:var(--ink-3)}
 .mile .mn{color:var(--sage);text-align:right}
 .ytoday{font-family:"JetBrains Mono",monospace;font-size:.5625rem;font-weight:700;color:var(--sage);letter-spacing:.03em;line-height:1}
+.ycol:not(.on) .ytoday{visibility:hidden}
 
 /* --- mixes, scales, ladders --- */
 .panel{display:grid;gap:.85rem;align-content:start}
@@ -259,7 +261,7 @@ html{scroll-behavior:smooth}
       <a class="chip" href="#soil">Soil</a>
       <a class="chip" href="#water">Water</a>
       <a class="chip" href="#feed">Feed</a>
-      <a class="chip" href="#sun">Light</a>
+      <a class="chip" href="#light">Light</a>
       <a class="chip" href="#winter">Winter</a>
       <a class="chip" href="#year">Year</a>
       <a class="chip" href="#cuts">Cuts</a>
@@ -278,33 +280,35 @@ html{scroll-behavior:smooth}
       <clipPath id="pupClip"><rect x="128" y="146" width="34" height="52" rx="17"/></clipPath>
     </defs>
     <ellipse cx="100" cy="252" rx="62" ry="7" fill="var(--ink)" opacity=".08"/>
-    <rect x="128" y="146" width="34" height="52" rx="17" fill="var(--plant)"/>
-    <g clip-path="url(#pupClip)" fill="var(--ink)" opacity=".13">
-      <rect x="139" y="146" width="4" height="52"/><rect x="151" y="146" width="4" height="52"/>
-    </g>
-    <rect x="132" y="154" width="6" height="34" rx="3" fill="#FFFFFF" opacity=".2"/>
-    <rect x="72" y="32" width="56" height="166" rx="28" fill="var(--plant)"/>
-    <g clip-path="url(#colClip)" fill="var(--ink)" opacity=".13">
-      <rect x="86" y="32" width="5" height="166"/><rect x="103" y="32" width="5" height="166"/><rect x="119" y="32" width="5" height="166"/>
-    </g>
-    <rect x="77" y="46" width="7" height="140" rx="3" fill="#FFFFFF" opacity=".22"/>
-    <g stroke="#C9A227" stroke-width="1.7" stroke-linecap="round" fill="none">
-      <path d="M72 66l-13-5M72 66l-14 3M72 66l-12 8"/>
-      <path d="M72 92l-13-5M72 92l-14 3M72 92l-12 8"/>
-      <path d="M72 118l-13-5M72 118l-14 3M72 118l-12 8"/>
-      <path d="M72 144l-13-5M72 144l-14 3M72 144l-12 8"/>
-      <path d="M72 166l-13-5M72 166l-14 3M72 166l-12 8"/>
-      <path d="M128 66l13-5M128 66l14 3M128 66l12 8"/>
-      <path d="M128 92l13-5M128 92l14 3M128 92l12 8"/>
-      <path d="M128 118l13-5M128 118l14 3M128 118l12 8"/>
-      <path d="M162 162l11-4M162 162l12 3M162 162l10 7"/>
-      <path d="M162 184l11-4M162 184l12 3M162 184l10 7"/>
-    </g>
-    <g fill="var(--ink)" opacity=".35">
-      <circle cx="72" cy="66" r="2.2"/><circle cx="72" cy="92" r="2.2"/><circle cx="72" cy="118" r="2.2"/>
-      <circle cx="72" cy="144" r="2.2"/><circle cx="72" cy="166" r="2.2"/>
-      <circle cx="128" cy="66" r="2.2"/><circle cx="128" cy="92" r="2.2"/><circle cx="128" cy="118" r="2.2"/>
-      <circle cx="162" cy="162" r="2"/><circle cx="162" cy="184" r="2"/>
+    <g transform="translate(-17,0)">
+      <rect x="128" y="146" width="34" height="52" rx="17" fill="var(--plant)"/>
+      <g clip-path="url(#pupClip)" fill="var(--ink)" opacity=".13">
+        <rect x="139" y="146" width="4" height="52"/><rect x="151" y="146" width="4" height="52"/>
+      </g>
+      <rect x="132" y="154" width="6" height="34" rx="3" fill="#FFFFFF" opacity=".2"/>
+      <rect x="72" y="32" width="56" height="166" rx="28" fill="var(--plant)"/>
+      <g clip-path="url(#colClip)" fill="var(--ink)" opacity=".13">
+        <rect x="86" y="32" width="5" height="166"/><rect x="103" y="32" width="5" height="166"/><rect x="119" y="32" width="5" height="166"/>
+      </g>
+      <rect x="77" y="46" width="7" height="140" rx="3" fill="#FFFFFF" opacity=".22"/>
+      <g stroke="#C9A227" stroke-width="1.7" stroke-linecap="round" fill="none">
+        <path d="M72 66l-13-5M72 66l-14 3M72 66l-12 8"/>
+        <path d="M72 92l-13-5M72 92l-14 3M72 92l-12 8"/>
+        <path d="M72 118l-13-5M72 118l-14 3M72 118l-12 8"/>
+        <path d="M72 144l-13-5M72 144l-14 3M72 144l-12 8"/>
+        <path d="M72 166l-13-5M72 166l-14 3M72 166l-12 8"/>
+        <path d="M128 66l13-5M128 66l14 3M128 66l12 8"/>
+        <path d="M128 92l13-5M128 92l14 3M128 92l12 8"/>
+        <path d="M128 118l13-5M128 118l14 3M128 118l12 8"/>
+        <path d="M162 162l11-4M162 162l12 3M162 162l10 7"/>
+        <path d="M162 184l11-4M162 184l12 3M162 184l10 7"/>
+      </g>
+      <g fill="var(--ink)" opacity=".35">
+        <circle cx="72" cy="66" r="2.2"/><circle cx="72" cy="92" r="2.2"/><circle cx="72" cy="118" r="2.2"/>
+        <circle cx="72" cy="144" r="2.2"/><circle cx="72" cy="166" r="2.2"/>
+        <circle cx="128" cy="66" r="2.2"/><circle cx="128" cy="92" r="2.2"/><circle cx="128" cy="118" r="2.2"/>
+        <circle cx="162" cy="162" r="2"/><circle cx="162" cy="184" r="2"/>
+      </g>
     </g>
     <path d="M56 197h88l-9 53a5 5 0 0 1-5 4H70a5 5 0 0 1-5-4z" fill="#A9765A"/>
     <path d="M110 197h34l-9 53a5 5 0 0 1-5 4h-32z" fill="#000" opacity=".12"/>
@@ -570,7 +574,7 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
-<section class="wrap sec reveal" id="sun">
+<section class="wrap sec reveal" id="light">
   <div class="sec-head">
     <span class="eyebrow">Light</span>
     <h2>As much as they will take without burning</h2>
@@ -669,7 +673,7 @@ html{scroll-behavior:smooth}
         <span class="step-n">1</span>
         <div><h4>Cut</h4><p class="step-when">STERILIZE THE BLADE BEFORE AND AFTER EVERY CUT</p></div>
       </div>
-      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="A sterilized blade slicing a pup away from the mother plant">
+      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="A pup on the mother plant with a dashed line marking where to cut it away">
         <g fill="var(--plant)">
           <rect x="100" y="12" width="44" height="94" rx="22"/>
           <rect x="142" y="52" width="16" height="14" rx="7"/>
@@ -682,9 +686,6 @@ html{scroll-behavior:smooth}
           <path d="M100 34l-10-4M100 34l-11 3M100 64l-10-4M100 64l-11 3M100 92l-10-4M100 92l-11 3"/>
         </g>
         <path d="M150 34v58" stroke="var(--alarm)" stroke-width="2" stroke-dasharray="4 4"/>
-        <path d="M262 34l-96 30 96 12z" fill="var(--ink-3)" opacity=".35"/>
-        <path d="M262 34l-96 30 96 12z" fill="none" stroke="var(--ink-2)" stroke-width="1.5" stroke-linejoin="round"/>
-        <rect x="258" y="40" width="46" height="14" rx="4" transform="rotate(8 258 40)" fill="var(--ink-2)"/>
         <text x="118" y="116" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--alarm)" letter-spacing=".8">STERILIZE BEFORE AND AFTER</text>
       </svg>
       <div class="step-body">
@@ -699,12 +700,12 @@ html{scroll-behavior:smooth}
         <span class="step-n">2</span>
         <div><h4>Callous</h4><p class="step-when">ABOUT TWO WEEKS. FASTER IN FRONT OF A FAN.</p></div>
       </div>
-      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="The cut pup standing upright in a shaded indoor spot with air moving around it, forming a dry scab on the cut face">
+      <svg class="step-art" viewBox="0 0 340 124" role="img" aria-label="The cut pup standing cut-face-up in a shaded indoor spot with air moving around it, forming a dry tan scab across the exposed cut">
         <rect x="46" y="98" width="248" height="4" rx="2" fill="var(--line-2)"/>
-        <rect x="148" y="26" width="44" height="72" rx="22" fill="var(--plant)"/>
-        <g fill="var(--ink)" opacity=".13"><rect x="162" y="36" width="4" height="54"/><rect x="176" y="36" width="4" height="54"/></g>
-        <rect x="156" y="36" width="10" height="48" rx="5" fill="#FFF" opacity=".22"/>
-        <path d="M150 94h40" stroke="var(--sun)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M148 26h44v50a22 22 0 0 1-44 0z" fill="var(--plant)"/>
+        <g fill="var(--ink)" opacity=".13"><rect x="162" y="38" width="4" height="52"/><rect x="176" y="38" width="4" height="52"/></g>
+        <rect x="156" y="38" width="10" height="46" rx="5" fill="#FFF" opacity=".22"/>
+        <path d="M150.5 28.5h39" stroke="var(--sun)" stroke-width="5" stroke-linecap="round"/>
         <g stroke="var(--cobalt)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7">
           <path d="M56 48c14-7 24 7 38 0"/><path d="M56 66c14-7 24 7 38 0"/>
           <path d="M246 48c14-7 24 7 38 0"/><path d="M246 66c14-7 24 7 38 0"/>
@@ -1222,7 +1223,7 @@ function render(){
   [].forEach.call(cols.children,function(c,i){
     var on=i===now.getMonth();
     c.classList.toggle('on',on);
-    c.lastElementChild.textContent=on?'▲':'';
+    c.lastElementChild.textContent='▲';
     c.title=fmt(new Date(now.getFullYear(),i,1),{month:'long'});
   });
 }
